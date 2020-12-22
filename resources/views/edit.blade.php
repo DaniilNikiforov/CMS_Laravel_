@@ -7,6 +7,9 @@
         <title>lab1</title>
 
         <style>
+        body {
+            padding-top:40px;
+        }
         form {
             display:flex;
             flex-direction:column;
@@ -18,27 +21,58 @@
             display:flex;
             margin-bottom:24px;
         }
-        .createі {
-            background: url(https://www.zastavki.com/pictures/originals/2015/Backgrounds_Ebony__white_background_105180_.png) ;
-  
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position:center ;
-                margin: 0;
-             position: absolute;
-             top: 50%;
-            left: 50%;
-            margin-right: -50%;
-            transform: translate(-50%, -50%);
-            line-height: 150%;
-            }
-
+        .createi {
+           
+           background-repeat: no-repeat;
+           background-size: cover;
+           background-position:center ;
+                   padding-top:200px;
+                       margin: 0;
+                    position: absolute;
+                    top: 50%;
+                   left: 50%;
+                   margin-right: -50%;
+                   transform: translate(-50%, -50%);
+                   line-height: 150%;
+                   }
+                   input[type=text], select {
+         width: 100%;
+         padding: 12px 20px;
+         margin: 8px 0;
+         display: inline-block;
+         border: 1px solid #ccc;
+         border-radius: 4px;
+         box-sizing: border-box;
+       }
+       
+       input[type=submit] {
+         width: 100%;
+         background-color: #4CAF50;
+         color: white;
+         padding: 14px 20px;
+         margin: 8px 0;
+         border: none;
+         border-radius: 4px;
+         cursor: pointer;
+       }
+       
+       input[type=submit]:hover {
+         background-color: #45a049;
+       }
+       
+       div {
+         border-radius: 5px;
+         background-color: #f2f2f2;
+         padding: 20px;
+       }
         </style>
     </head>
     <body class="createі">
-
-    <h2>Page Editor</h1>
-    <h3>Page id : {{$page->id}}</h2>
+ <!-- Страница изменение поста  , аналогична созданию -->
+    <h2>Редактор страниц</h1>
+    <!-- Выводим номер страницы за ид -->
+    <h3>Номер страницы : {{$page->id}}</h2>
+        <!-- Выводим урл страницы  -->
     <h3>Page url : {{$page->url}}</h2>
         <form action="{{url('editPage')}}" method="post">
         @csrf

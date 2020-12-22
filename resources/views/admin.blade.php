@@ -12,12 +12,13 @@
             }
             .header__top {
                 width: 100%;
-                background-color: black;
+               
+                height:600px;
             }
 
            
             .body__body {
-                margin-top:30px;
+                padding-top:90px;
                 margin: 0;
              position: absolute;
              top: 20%;
@@ -30,18 +31,18 @@
                 color:white;
                 text-align:center;
             }
-            a.button7 {
+              a.button7 {
   font-weight: 600;
-  color: white;
+  color: green;
   text-decoration: none;
   padding: .5em 1em calc(.8em + 2px);
   border-radius: 2px;
-  background: rgb(0,0,0);
-  box-shadow: 0 -3px rgb(53,167,110) inset;
+ cursor:pointer;
+
   transition: 0.2s;
   
 } 
-a.button7:hover { background: rgb(53, 167, 110); }
+/* a.button7:hover { background: rgb(53, 167, 110); }
 a.button7:active {
   background: rgb(33,147,90);
   box-shadow: 0 3px rgb(33,147,90) inset;
@@ -58,44 +59,86 @@ border-collapse: separate;
 empty-cells: hide;
 }
 
-.center1 {
-    text-align:center;
-}
-th, td {border: 2px solid #69c;}
+
+th, td {border: 2px solid #69c;} */ */ */
+
+
 body {
-    background: url(https://www.zastavki.com/pictures/originals/2015/Backgrounds_Ebony__white_background_105180_.png) ;
+   padding-top:100px;
+    background: url(https://img5.goodfon.ru/wallpaper/nbig/c/13/materiki-karta-mira-mir-zemlia-kontinenty-seryi-fon.jpg) ;
   
     background-repeat: no-repeat;
     background-size: cover;
     background-position:center ;
 }
+.center {
+    text-align:center;
+}
+h2 {
+    display:flex;
+    text-align:center;
+    align-items:center;
+    justify-content:center;
+}
+.styled-table {
+    text-align:center;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+}
         </style>
     </head>
     <header class="header__top"> 
-        <h1>admin panel</h1>
+     
         </header>
    
     <body class="body__body">
       
 
 
-      
-        <table>
-        <caption>Model № 1</caption>
+      <!-- Таблица админки -->
+        <table  class="styled-table">
+       <thead>
             <tr>
             <td>alias</td>
                 <td>URL</td>
-                <td>parent</td>
+                <td>родители</td>
                 <td>orderNum</td>
-                <td>TITLE</td>
-                <td>CREATED</td>
-                <td>EDITED</td>
-                <td>ID №</td>
-                <td>EDIT</td>
-                <td>DEL</td>
-                <td >Child</td>
-                <td >View</td>
+                <td>Титул</td>
+                <td>Создано</td>
+                <td>Изменено</td>
+                <td>Номер</td>
+                <td>Изменение</td>
+                <td>Удаление</td>
+                <td >Дети</td>
+                <td >Просмотр</td>
             </tr>
+            </thead>
             @foreach($pagesList as $page)
             <tr>
             <td><span>{{$page->aliasOf}}</span></td>
@@ -107,27 +150,34 @@ body {
                 <td><span>{{$page->editedDate}}</span></td>
                 <td><span>{{$page->id}}</span></td>
                 @if($page->url != 'default')
-                <td><span><a href='admin/edit/{{$page->id}}'class="button7"><button>Edit</button></a></span></td>
+                 <!--  действие изменить страницу -->
+                <td><span><a href='admin/edit/{{$page->id}}'class="button7"><button>Изменить</button></a></span></td>
+                <!-- метод пост , действие удаление страницы -->
                 <td style="display:flex"><span><form action="{{url('deletePage')}}" method="POST">
                     @csrf
                     <input type="text" name='id' style="display:none" value='{{$page->id}}'>
+                         <!--  действие удалить страницу -->
                     <input type="submit" id="form-submit" value="Delete" >
                 </form></span></td>
                 
-                <td><span><a href="{{route('chi')}}/{{$page->url}}"class="button7"><button>children</button></a></span></td>
-               <td><span><a href="{{url($page->url)}}"class="button7"><button>View</button></a></span></td>
+                <td><span><a href="{{route('chi')}}/{{$page->url}}"class="button7"><button>дети</button></a></span></td>
+               <td><span><a href="{{url($page->url)}}"class="button7"><button>Посмотреть</button></a></span></td>
                @endif
             </tr>           
                   
        @endforeach
-       <h2>Количество страниц <span>{{$page->id-29}}</span></h2>
+          <!--  выводим количетсво страниц -->
+       <h2>Cтраниц - <span>{{$page->id-29-13}}</span></h2>
         </table>
         <div class="center">
-        <span><a href="{{route('new')}}" class="button7 " ><button> Add new</button></a></span>
+             <!--  действие добавить новый пост на страницу -->
+        <span><a href="{{route('new')}}" class="button7 " ><button> Добавить новый пост</button></a></span>
         </div>
         <div class="center1">
-        
-       <a href='/default'class="button7 ">Головна сторинка</a>
+             <!--  действие переход на главную страницу с родителями -->
+       <a href='/default'class="button7 ">Главная страница</a>
         </div>
     </body>
+    <footer>
+    </footer>
 </html>
