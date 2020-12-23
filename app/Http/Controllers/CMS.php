@@ -29,7 +29,7 @@ class CMS extends Controller
 
         if(!$request->input('sort')) {
             $data =  pages::get_page("default",'');
-            $children =  pages::getChildren("default");
+            $children = pages::getChildren("default");
             return view("welcome",["page"=>$data,'children' => $children]);
         }
         $data =  pages::get_page("default", '');

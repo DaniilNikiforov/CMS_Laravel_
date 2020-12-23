@@ -13,29 +13,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // метод гет создать по руту
-Route::get('/admin/create',function () {
-    return view('create');
-})->name('new');
-Route::get('/',function () {
-    return redirect('/admin');
-});
+Route::get('/admin/create',function() { return view('create'); } )->name('new');
+Route::get('/',function() { return redirect('/admin'); } );
 
 
 
-
+Route::get('/admin','App\Http\Controllers\Admin@index');
 Route::get('admin/children', 'App\Http\Controllers\Admin@children')->name('chi');
 Route::get('/admin/children/{lang}/{page}','App\Http\Controllers\Admin@children');
-Route::get('/admin','App\Http\Controllers\Admin@index');
+
 
 //  3 пост метода , для создание, удаление , изменения
-    Route::post('editPage','App\Http\Controllers\Admin@editPage')->name('editPage');
-    Route::post('deletePage','App\Http\Controllers\Admin@deletePage')->name('deletePage');
-    Route::post('createPage','App\Http\Controllers\Admin@createPage')->name('createPage');
-    Route::get('/admin/edit/{id}','App\Http\Controllers\Admin@edit')->name('edit');
+Route::post('editPage','App\Http\Controllers\Admin@editPage')->name('editPage');
+Route::post('deletePage','App\Http\Controllers\Admin@deletePage')->name('deletePage');
+Route::post('createPage','App\Http\Controllers\Admin@createPage')->name('createPage');
+Route::get('/admin/edit/{id}','App\Http\Controllers\Admin@edit')->name('edit');
 
 
-
-    Route::get('/{lang}/{page}', 'App\Http\Controllers\CMS@get_page');
-    Route::get('/default', 'App\Http\Controllers\CMS@default');
+Route::get('/{lang}/{page}', 'App\Http\Controllers\CMS@get_page');
+Route::get('/default', 'App\Http\Controllers\CMS@default');
 
 

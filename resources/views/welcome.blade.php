@@ -47,15 +47,18 @@
                 justify-content: center;
                 ALIGN-CONTENT: center;
                 align-items: center;
-                width:100%;
+                width:85%;
             }
-            .main-content {
-                width:100%;
+
+            .main-content-date{
                 display: flex;
                 justify-content: center;
                 ALIGN-CONTENT: center;
                 align-items: center;
+                margin-top: 30px;
+                margin-left: -10%;
             }
+
             .text {
                 padding:0 16px;
 
@@ -98,8 +101,8 @@ main {
   main { padding: 2rem; }
 }
             .sidebar {
-
-                width: 130%;
+                float: left;
+                width: 20%;
                 color:green;
 
             }
@@ -278,12 +281,12 @@ p img {
                 @endforeach
                 </ul>
             </div>
-            <div style="margin: 0px 250px 0px 150px;">
+            <div >
                 <h1 class="title">{{$page->caption}}</h1>
                 <div class="main-content text">
-                    <?php echo($page->content) ?>
+                    <div style="width: 1200px; float: left;"><?php echo($page->content) ?><div>
                 </div>
-                <div class="main-content text">
+                <div class="main-content-date text">
                      <?php echo("Дата создания: ".date("Y-m-d -- h:i", strtotime($page->createdDate)).'<br>') ?>
                      <?php echo("Дата редактирования: ".date("Y-m-d -- h:i", strtotime($page->editedDate)).'<br>') ?>
                 </div>

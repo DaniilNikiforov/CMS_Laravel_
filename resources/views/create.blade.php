@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-      
+
         <title>lab1</title>
 
         <style>
@@ -22,7 +22,7 @@
             margin-bottom:24px;
         }
         .create {
-           
+
     /* background-repeat: no-repeat;
     background-size: cover;
     background-position:center ; */
@@ -69,7 +69,7 @@ div {
     </head>
     <body class="create ">
  <!-- Страница создание поста  -->
-    <h2>Create Page</h1>
+    <h2>Create Page</h2>
 
         <form action="{{url('createPage')}}" method="post">
         @csrf
@@ -83,6 +83,6 @@ div {
                 <div><span>Content : </span><textarea style="height:700px;width:700px;" type="text" id="content" name="content" required pattern="<([A-Z][A-Z0-9]*)\b[^>]*>(.*?)</\1>"></textarea></div>
                 <input type="submit" id="form-submit" value="Надіслати">
         </form>
-        
+
     </body>
 </html>

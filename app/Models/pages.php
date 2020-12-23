@@ -28,6 +28,14 @@ class pages extends Model
         return $pages;
     }
 
+    public static function get_quantity($list){
+        $quantity=0;
+        foreach ($list as $page){
+            $quantity++;
+        }
+        return $quantity;
+    }
+
     //модель edit_page изменение страницы по id
     public static function edit_page($id,$caption,$content,$parentCode,$orderNum,$aliasOf = NULL) {
         DB::table('pages')
@@ -37,13 +45,11 @@ class pages extends Model
 
     //модель delete_page удаление страницы по ид
     public static function delete_page($id) {
-        DB::table('pages')
-        ->where('id',$id)
-        ->delete();
+        DB::table('pages')->where('id',$id)->delete();
     }
 
      //модель create_page создание страницы
-    public static function create_page($caption,$content,$url,$parentCode,$orderNum = NULL,$aliasOf = NULL) {
+    public static function create_page($caption, $content, $url, $parentCode, $orderNum = NULL, $aliasOf = NULL) {
         DB::table('pages')
         ->insert(['aliasOf' => $aliasOf,'orderNum' => intval($orderNum),'parentCode' => $parentCode,'url'=>$url,'caption' => $caption,'content' => $content,'createdDate' =>DB::raw('now()'),'editedDate' => DB::raw('now()')]);
     }
@@ -54,8 +60,7 @@ class pages extends Model
     }
 
 
-
-// метод в который передаеться код родителя и сортировку если она нужна
+    // метод в который передаеться код родителя и сортировку если она нужна
     public static function getChildren($parentCode, $sort = '') {
         if ($sort != '') {
             $children = DB::table('pages')->where('pages.parentCode', $parentCode)->orderBy($sort,'ASC')->get();
@@ -64,7 +69,5 @@ class pages extends Model
         $children = DB::table('pages')->where('pages.parentCode', $parentCode)->get();
         return $children;
     }
-
-
 
 }

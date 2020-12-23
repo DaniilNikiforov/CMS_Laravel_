@@ -12,11 +12,11 @@
             }
             .header__top {
                 width: 100%;
-               
+
                 height:600px;
             }
 
-           
+
             .body__body {
                 padding-top:90px;
                 margin: 0;
@@ -40,8 +40,8 @@
  cursor:pointer;
 
   transition: 0.2s;
-  
-} 
+
+}
 /* a.button7:hover { background: rgb(53, 167, 110); }
 a.button7:active {
   background: rgb(33,147,90);
@@ -50,7 +50,7 @@ a.button7:active {
 caption {
 caption-side: bottom;
 text-align: right;
-padding: 10px 0; 
+padding: 10px 0;
 font-size: 14px;
 }
 table {
@@ -60,13 +60,11 @@ empty-cells: hide;
 }
 
 
-th, td {border: 2px solid #69c;} */ */ */
+th, td {border: 2px solid #69c;} */
 
 
 body {
-   padding-top:100px;
-    background: url(https://img5.goodfon.ru/wallpaper/nbig/c/13/materiki-karta-mira-mir-zemlia-kontinenty-seryi-fon.jpg) ;
-  
+    padding-top:100px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position:center ;
@@ -113,12 +111,12 @@ h2 {
 }
         </style>
     </head>
-    <header class="header__top"> 
-     
-        </header>
-   
+    <header class="header__top">
+
+    </header>
+
     <body class="body__body">
-      
+
 
 
       <!-- Таблица админки -->
@@ -159,15 +157,15 @@ h2 {
                          <!--  действие удалить страницу -->
                     <input type="submit" id="form-submit" value="Delete" >
                 </form></span></td>
-                
+
                 <td><span><a href="{{route('chi')}}/{{$page->url}}"class="button7"><button>дети</button></a></span></td>
                <td><span><a href="{{url($page->url)}}"class="button7"><button>Посмотреть</button></a></span></td>
                @endif
-            </tr>           
-                  
+            </tr>
+
        @endforeach
           <!--  выводим количетсво страниц -->
-       <h2>Cтраниц - <span>{{$page->id-29-13}}</span></h2>
+       <h2>Cтраниц - <span>{{$counter}}</span></h2>
         </table>
         <div class="center">
              <!--  действие добавить новый пост на страницу -->
@@ -178,6 +176,4 @@ h2 {
        <a href='/default'class="button7 ">Главная страница</a>
         </div>
     </body>
-    <footer>
-    </footer>
 </html>

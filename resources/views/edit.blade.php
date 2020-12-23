@@ -22,7 +22,7 @@
             margin-bottom:24px;
         }
         .createi {
-           
+
            background-repeat: no-repeat;
            background-size: cover;
            background-position:center ;
@@ -44,7 +44,7 @@
          border-radius: 4px;
          box-sizing: border-box;
        }
-       
+
        input[type=submit] {
          width: 100%;
          background-color: #4CAF50;
@@ -55,11 +55,11 @@
          border-radius: 4px;
          cursor: pointer;
        }
-       
+
        input[type=submit]:hover {
          background-color: #45a049;
        }
-       
+
        div {
          border-radius: 5px;
          background-color: #f2f2f2;
@@ -73,18 +73,18 @@
     <!-- Выводим номер страницы за ид -->
     <h3>Номер страницы : {{$page->id}}</h2>
         <!-- Выводим урл страницы  -->
-    <h3>Page url : {{$page->url}}</h2>
+    <h3>Page url : {{$page->url}}</h3>
         <form action="{{url('editPage')}}" method="post">
         @csrf
-        <div><span>aliasOf : </span><input type="text" id="aliasOf" name="aliasOf" value="{{$page->aliasOf}}" ></div>
+                <div><span>aliasOf : </span><input type="text" id="aliasOf" name="aliasOf" value="{{$page->aliasOf}}" ></div>
                 <div><span>Caption : </span><input type="text" id="caption" name="caption" value="{{$page->caption}}" ></div>
                 <div><span>parentCode : </span><input type="text" id="parentCode" name="parentCode" value="{{$page->parentCode}}" ></div>
                 <div><span>orderNum : </span><input type="text" id="orderNum" name="orderNum" value="{{$page->orderNum}}" ></div>
                 <div><span>Content : </span><textarea style="height:700px;width:700px;" type="text" id="content" name="content" required>{{$page->content}}</textarea></div>
-               
+
                 <input type="text" name='id' style="display:none" value='{{$page->id}}'>
                 <input type="submit" id="form-submit" value="Надіслати">
         </form>
-        
+
     </body>
 </html>
