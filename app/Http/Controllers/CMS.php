@@ -12,21 +12,15 @@ class CMS extends Controller
     public function get_page($lang,$page,Request $request) {
         $url = $lang."/".$page;
 
-        if($request->input('alias')){
-            $children = pages::getChildren($request->input('alias'),'');
-            $childrenSort = pages::getChildren($request->input('alias'), $request->input('sort'));
-        }else{
-            $children = pages::getChildren($url, '');
-            $childrenSort = pages::getChildren($url, $request->input('sort'));
-        }
-
-        if(!$request->input('sort')) {
-            $data =  pages::get_page($url, $request->input('alias'));
-            return view("welcome",["page"=>$data,'children' => $children]);
-        }
-
         $data =  pages::get_page($url, $request->input('alias'));
-        return view("welcome", ["page"=>$data,'children' => $childrenSort]);
+
+        if($request->input('alias')){
+            $children = pages::getChildren($request->input('alias'), $request->input('sort'));
+        }else{
+            $children = pages::getChildren($url, $request->input('sort'));
+        }
+
+        return view("welcome", ["page"=>$data,'children' => $children]);
     }
 
     // Страница дефолт, где есть список статей (главная страница )

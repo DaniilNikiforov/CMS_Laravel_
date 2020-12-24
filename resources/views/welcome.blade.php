@@ -266,7 +266,7 @@ p img {
 
                 <ul style='margin-top: 100px;'>
                 <!-- Тип сортировки тем, по дате и по порядку за orderNum -->
-                    <li>Вид     Сортировки</li>
+                    <li>Вид Сортировки</li>
                     <li><a href="{{url($page->url)}}?sort=createdDate">по дате</a></li>
                     <li><a href="{{url($page->url)}}?sort=orderNum">по порядку</a></li>
                     <li>Темы</li>
