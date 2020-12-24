@@ -266,30 +266,30 @@ p img {
 
                 <ul style='margin-top: 100px;'>
                 <!-- Тип сортировки тем, по дате и по порядку за orderNum -->
-                <li>Вид     Сортировки</li>
-                <li><a href="{{url($page->url)}}?sort=createdDate">по дате</a></li>
-                <li><a href="{{url($page->url)}}?sort=orderNum">по порядку</a></li>
-                <li>Темы</li>
-                @foreach($children as $child)
-                    @if($child->url !='default')
-                        @if($child->aliasOf)
-                            <li><a href="{{url($child->aliasOf)}}?alias={{$child->url}}">+ {{$child->caption}}</a></li>
-                        @else
-                            <li><a href="{{url($child->url)}}">+ {{$child->caption}}</a></li>
-                        @endif
-                    @endif
-                @endforeach
+                    <li>Вид     Сортировки</li>
+                    <li><a href="{{url($page->url)}}?sort=createdDate">по дате</a></li>
+                    <li><a href="{{url($page->url)}}?sort=orderNum">по порядку</a></li>
+                    <li>Темы</li>
+                        @foreach($children as $child)
+                            @if($child->url !='default')
+                                @if($child->aliasOf)
+                                    <li><a href="{{url($child->url)}}?alias={{$child->aliasOf}}">+ {{$child->caption}}</a></li>
+                                @else
+                                    <li><a href="{{url($child->url)}}">+ {{$child->caption}}</a></li>
+                                @endif
+                            @endif
+                        @endforeach
                 </ul>
             </div>
             <div >
-                <h1 class="title">{{$page->caption}}</h1>
-                <div class="main-content text">
-                    <div style="width: 1200px; float: left;"><?php echo($page->content) ?><div>
-                </div>
-                <div class="main-content-date text">
-                     <?php echo("Дата создания: ".date("Y-m-d -- h:i", strtotime($page->createdDate)).'<br>') ?>
-                     <?php echo("Дата редактирования: ".date("Y-m-d -- h:i", strtotime($page->editedDate)).'<br>') ?>
-                </div>
+                    <h1 class="title">{{$page->caption}}</h1>
+                    <div class="main-content text">
+                        <div style="width: 1200px; float: left;"><?php echo($page->content) ?><div>
+                    </div>
+                    <div class="main-content-date text">
+                         <?php echo("Дата создания: ".date("Y-m-d -- h:i", strtotime($page->createdDate)).'<br>') ?>
+                         <?php echo("Дата редактирования: ".date("Y-m-d -- h:i", strtotime($page->editedDate)).'<br>') ?>
+                    </div>
             </div>
        </div>
 
